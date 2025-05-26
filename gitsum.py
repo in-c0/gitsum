@@ -50,7 +50,7 @@ if search_button and keyword:
 
                 st.markdown("Generating summary with Repomix... 🔧")
                 repomix_out = os.path.join(tmpdir, "repomix-summary.md")
-                os.system(f"npx repomix {tmpdir} --output {repomix_out} --style markdown --max-files 5")
+                os.system(f"npx repomix {tmpdir} --output {repomix_out} --style markdown --max-files 5") # TODO: Instead of setting max files to summarize, auto-reject massive repos / add progress or timeouts. 
 
                 # Upload PDFs to S3
                 pdfs_uploaded = 0
