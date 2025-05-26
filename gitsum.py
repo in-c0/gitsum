@@ -47,15 +47,15 @@ if search_button and keyword:
             st.markdown(repo.description or "No description")
 
             with tempfile.TemporaryDirectory() as tmpdir:
-                if os.path.getsize(repomix_out) > 100000:
-                    st.warning("⚠️ Repo summary too large to embed. Try a smaller repo.")
-                    continue
-
                 os.system(f"git clone {repo.clone_url} {tmpdir}")
 
                 st.markdown("Generating summary with Repomix... 🔧")
                 repomix_out = os.path.join(tmpdir, "repomix-summary.md")
                 os.system(f"npx repomix {tmpdir} --output {repomix_out} --style markdown --ignore '**/data/** **/notebooks/**'")
+
+                if os.path.getsize(repomix_out) > 100000:
+                    st.warning("⚠️ Repo summary too large to embed. Try a smaller repo.")
+                    continue
 
                 # ✅ Truncate summary if it's too big
                 if os.path.exists(repomix_out):
