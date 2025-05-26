@@ -1,6 +1,7 @@
 # GITSUM - GitHub Intelligence Summary
 # Prototype MVP using Streamlit, LlamaIndex, LangChain, Repomix, AWS
 
+from langchain_openai import ChatOpenAI
 import streamlit as st
 import os
 import tempfile
@@ -10,9 +11,7 @@ from github import Github
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, ServiceContext
 from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.core.node_parser import SimpleNodeParser
-from langchain.chat_models import ChatOpenAI
-from langchain.llms import OpenAI
-from llama_index.llms import LangChainLLM
+from llama_index.llms import OpenAI as LlamaOpenAI
 from llama_index.core.query_engine import RetrieverQueryEngine
 
 # --- Load AWS Secrets ---
@@ -24,7 +23,7 @@ AWS_S3_BUCKET = 'gitsum-docs'
 
 # --- Init Services ---
 llm = ChatOpenAI(temperature=0.1, model_name="gpt-4", openai_api_key=OPENAI_API_KEY)
-llm_wrapper = LangChainLLM(llm=llm)
+llm_wrapper = LlamaOpenAI(model="gpt-4", api_key=OPENAI_API_KEY, temperature=0.1)
 service_context = ServiceContext.from_defaults(llm=llm_wrapper, embed_model=OpenAIEmbedding())
 
 g = Github(GITHUB_TOKEN)
