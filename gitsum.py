@@ -23,7 +23,7 @@ AWS_S3_BUCKET = 'gitsum-docs'
 
 # --- Init Services ---
 llm = ChatOpenAI(temperature=0.1, model_name="gpt-4", openai_api_key=OPENAI_API_KEY)
-Settings.llm = OpenAI(model="gpt-4", api_key=OPENAI_API_KEY, temperature=0.1)
+Settings.llm = OpenAI(model="gpt-4", temperature=0.1)
 Settings.embed_model = OpenAIEmbedding()
 
 g = Github(GITHUB_TOKEN)
