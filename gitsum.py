@@ -50,7 +50,7 @@ if search_button and keyword:
 
                 st.markdown("Generating summary with Repomix... 🔧")
                 repomix_out = os.path.join(tmpdir, "repomix-summary.md")
-                os.system(f"npx repomix {tmpdir} --output {repomix_out} --style markdown")
+                os.system(f"npx repomix {tmpdir} --output {repomix_out} --style markdown --max-files 5")
 
                 # Upload PDFs to S3
                 pdfs_uploaded = 0
