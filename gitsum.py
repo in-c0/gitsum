@@ -52,13 +52,19 @@ if search_button and keyword:
                 repomix_out = os.path.join(tmpdir, "repomix-summary.md")
                 os.system(f"npx repomix {tmpdir} --output {repomix_out} --style markdown")
 
-                # Upload PDFs to S3 (real logic)
+                # Upload PDFs to S3
+                pdfs_uploaded = 0
                 for root, dirs, files in os.walk(tmpdir):
                     for file in files:
                         if file.endswith(".pdf"):
                             local_path = os.path.join(root, file)
                             s3_key = f"{repo.name}/{file}"
                             s3.upload_file(local_path, AWS_S3_BUCKET, s3_key)
+                            pdfs_uploaded += 1
+                if pdfs_uploaded == 0:
+                    st.info("ℹ️ No PDFs found in this repository.")
+                else:
+                    st.success(f"✅ Uploaded {pdfs_uploaded} PDFs to S3.")
 
                 # Load only the Repomix output file
                 docs = SimpleDirectoryReader(input_files=[repomix_out]).load_data()
