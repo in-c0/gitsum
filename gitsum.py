@@ -55,7 +55,21 @@ if search_button and keyword:
 
                 st.markdown("Generating summary with Repomix... 🔧")
                 repomix_out = os.path.join(tmpdir, "repomix-summary.md")
-                os.system(f"npx repomix {tmpdir} --output {repomix_out} --style markdown --max-files 5") # TODO: Instead of setting max files to summarize, auto-reject massive repos / add progress or timeouts. 
+                os.system(f"npx repomix {tmpdir} --output {repomix_out} --style markdown --ignore '**/data/** **/notebooks/**'")
+
+                # ✅ Truncate summary if it's too big
+                if os.path.exists(repomix_out):
+                    with open(repomix_out, "r") as f:
+                        content = f.read()
+
+                    if len(content) > 50000:
+                        content = content[:50000]  # trim to 50k characters
+                        with open(repomix_out, "w") as f:
+                            f.write(content)
+
+                if not os.path.exists(repomix_out):
+                    st.error("❌ Repomix summary was not generated. Skipping this repo.")
+                    continue  # skip to the next repo
 
                 # Upload PDFs to S3
                 pdfs_uploaded = 0
