@@ -12,8 +12,9 @@ from github import Github
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Settings
 from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.llms.openai import OpenAI
-from llama_index.core.node_parser import SimpleNodeParser
-from llama_index.core.query_engine import RetrieverQueryEngine
+from langchain.prompts import PromptTemplate
+from langchain.chains import RetrievalQA
+from langchain.chains.qa_with_sources import load_qa_with_sources_chain
 import openai
 
 # --- Load AWS Secrets ---
@@ -96,10 +97,34 @@ if search_button and keyword:
                     start = time.time()
                     docs = SimpleDirectoryReader(input_files=[repomix_out]).load_data()
                     index = VectorStoreIndex.from_documents(docs)
-                    query_engine = index.as_query_engine(similarity_top_k=5)
-                    st.success(f"✅ Indexed in {time.time() - start:.2f} seconds")
+                    
+                    retriever = index.as_retriever(similarity_top_k=5)
 
-                st.session_state[f"engine_{repo.full_name}"] = query_engine
+                    template = """Use the context to answer the question.
+                    If the answer is not in the context, say you don't know.
+
+                    Context:
+                    {context}
+
+                    Question: {question}
+                    """
+
+                    prompt = PromptTemplate(
+                        input_variables=["context", "question"],
+                        template=template,
+                    )
+
+                    qa_chain = RetrievalQA.from_chain_type(
+                        llm=llm,  # this is your langchain_openai.ChatOpenAI model
+                        retriever=retriever,
+                        chain_type="stuff",
+                        chain_type_kwargs={"prompt": prompt},
+                    )
+
+                    st.session_state[f"engine_{repo.full_name}"] = qa_chain
+
+
+                    st.success(f"✅ Indexed in {time.time() - start:.2f} seconds")
                 st.success(f"Indexed {repo.full_name} ✅")
 
 st.divider()
@@ -112,9 +137,6 @@ ask_button = st.button("Ask")
 if ask_button and question and selected_repo:
     engine = st.session_state[selected_repo]
     with st.spinner("Querying the repo..."):
-        response = engine.query(question)
+        response = engine.run(question)
         st.markdown("### 🤖 Answer")
-        st.write(response.response)
-        st.markdown("### 📄 Sources")
-        for src in response.source_nodes:
-            st.code(src.node.text[:1000])
+        st.write(response)
