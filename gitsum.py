@@ -7,6 +7,7 @@ import os
 import tempfile
 import boto3
 import json
+import time
 from github import Github
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Settings
 from llama_index.embeddings.openai import OpenAIEmbedding
@@ -24,7 +25,7 @@ AWS_S3_BUCKET = 'gitsum-docs'
 # --- Init Services ---
 llm = ChatOpenAI(temperature=0.1, model_name="gpt-4", openai_api_key=OPENAI_API_KEY)
 Settings.llm = OpenAI(model="gpt-4", temperature=0.1)
-Settings.embed_model = OpenAIEmbedding()
+Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small")
 
 g = Github(GITHUB_TOKEN)
 s3 = boto3.client('s3')
@@ -46,6 +47,10 @@ if search_button and keyword:
             st.markdown(repo.description or "No description")
 
             with tempfile.TemporaryDirectory() as tmpdir:
+                if os.path.getsize(repomix_out) > 100000:
+                    st.warning("⚠️ Repo summary too large to embed. Try a smaller repo.")
+                    continue
+
                 os.system(f"git clone {repo.clone_url} {tmpdir}")
 
                 st.markdown("Generating summary with Repomix... 🔧")
@@ -67,9 +72,11 @@ if search_button and keyword:
                     st.success(f"✅ Uploaded {pdfs_uploaded} PDFs to S3.")
 
                 # Load only the Repomix output file
+                start = time.time()
                 docs = SimpleDirectoryReader(input_files=[repomix_out]).load_data()
                 index = VectorStoreIndex.from_documents(docs)
-                query_engine = index.as_query_engine(similarity_top_k=5)
+                print(f"⏱ Indexing took {time.time() - start:.2f} seconds")
+
 
                 st.session_state[f"engine_{repo.full_name}"] = query_engine
                 st.success(f"Indexed {repo.full_name} ✅")
