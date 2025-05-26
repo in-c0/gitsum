@@ -8,7 +8,7 @@ import boto3
 import json
 from github import Github
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, ServiceContext
-from llama_index.core.embeddings import OpenAIEmbedding
+from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.core.node_parser import SimpleNodeParser
 from langchain.chat_models import ChatOpenAI
 from langchain.llms import OpenAI
