@@ -14,6 +14,7 @@ from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.llms.openai import OpenAI
 from llama_index.core.node_parser import SimpleNodeParser
 from llama_index.core.query_engine import RetrieverQueryEngine
+import openai
 
 # --- Load AWS Secrets ---
 client = boto3.client('secretsmanager', region_name='ap-southeast-2')
@@ -23,9 +24,10 @@ GITHUB_TOKEN = secret['GITHUB_TOKEN']
 AWS_S3_BUCKET = 'gitsum-docs'
 
 # --- Init Services ---
+openai.api_key = OPENAI_API_KEY
 llm = ChatOpenAI(temperature=0.1, model_name="gpt-4", openai_api_key=OPENAI_API_KEY)
 Settings.llm = OpenAI(model="gpt-4", temperature=0.1)
-Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small")
+Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small", api_key=OPENAI_API_KEY)
 
 g = Github(GITHUB_TOKEN)
 s3 = boto3.client('s3')
@@ -85,12 +87,17 @@ if search_button and keyword:
                 else:
                     st.success(f"✅ Uploaded {pdfs_uploaded} PDFs to S3.")
 
-                # Load only the Repomix output file
-                start = time.time()
-                docs = SimpleDirectoryReader(input_files=[repomix_out]).load_data()
-                index = VectorStoreIndex.from_documents(docs)
-                print(f"⏱ Indexing took {time.time() - start:.2f} seconds")
+                # ✅ Show the user the Repomix summary (first 3000 chars)
+                st.markdown("### 📦 Repomix Summary Preview")
+                st.code(content[:3000], language="markdown")
 
+                # ✅ Embed and index with feedback
+                with st.spinner("Embedding & indexing the summary... ⏳"):
+                    start = time.time()
+                    docs = SimpleDirectoryReader(input_files=[repomix_out]).load_data()
+                    index = VectorStoreIndex.from_documents(docs)
+                    query_engine = index.as_query_engine(similarity_top_k=5)
+                    st.success(f"✅ Indexed in {time.time() - start:.2f} seconds")
 
                 st.session_state[f"engine_{repo.full_name}"] = query_engine
                 st.success(f"Indexed {repo.full_name} ✅")
