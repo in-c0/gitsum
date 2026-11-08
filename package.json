@@ -21,7 +21,9 @@
   "scripts": {
     "test": "node --test tests/*.test.mjs",
     "bench": "node bench/run.mjs",
-    "test:team": "node --test tests/team-api.test.mjs"
+    "test:team": "node --test tests/team-api.test.mjs",
+    "build:extension": "node extension/build.mjs",
+    "judge:hud": "node scripts/judge-hud.mjs && node extension/build.mjs && node scripts/check-extension-load.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.32.2",
