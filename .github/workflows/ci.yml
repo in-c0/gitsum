@@ -32,6 +32,20 @@ jobs:
           (cd "$tmp" && npm install --omit=dev --no-audit --no-fund >/dev/null && node src/cli.js --help >/dev/null)
       - name: Build Chrome extension
         run: npm run build:extension --if-present
+      - name: HUD judge (Playwright + real Chrome, 6 viewports, extension load)
+        env:
+          HUD_CLONES: ${{ runner.temp }}/hud-clones
+          SHOTS: ${{ runner.temp }}/hud-shots
+        run: |
+          node scripts/fetch-hud-clones.mjs
+          npm run judge:hud
+      - name: Upload HUD screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hud-shots
+          path: ${{ runner.temp }}/hud-shots
+          if-no-files-found: ignore
       - name: Answer-quality benchmark (outside judge)
         run: node bench/run.mjs --per 6 --min 0.9
       - name: Upload extension zip

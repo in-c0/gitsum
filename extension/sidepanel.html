@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en" data-theme="system">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Gitsum</title>
+  <link rel="icon" href="icons/icon32.png" />
+  <link rel="stylesheet" href="panel.css" />
+</head>
+<body data-act="0" data-state="idle">
+  <div id="app">
+    <header id="top">
+      <svg class="mark" viewBox="0 0 18 18" aria-hidden="true"><path class="m1" d="M6 2.5h10l-3 3.2H3z" /><path class="m2" d="M6 7.4h10l-3 3.2H3z" /><path class="m3" d="M6 12.3h10l-3 3.2H3z" /></svg>
+      <div id="repo" class="mono" title=""><span id="repoOwner"></span><span id="repoName">Gitsum</span></div>
+      <div id="lens" role="tablist" aria-label="Lens">
+        <button role="tab" data-lens="strata" aria-selected="true">Strata</button>
+        <button role="tab" data-lens="atlas" aria-selected="false">Atlas</button>
+        <i class="hairline" aria-hidden="true"></i>
+      </div>
+      <button id="gear" class="icon" aria-label="Settings" title="Settings">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 5.6a2.4 2.4 0 1 0 0 4.8 2.4 2.4 0 0 0 0-4.8Zm5.6 3.3-.1-1.8 1.3-1-1.3-2.3-1.6.5a5 5 0 0 0-1.5-.9L10 1.8H7.4l-.4 1.6c-.5.2-1 .5-1.5.9l-1.6-.5-1.3 2.3 1.3 1-.1.9.1.9-1.3 1 1.3 2.3 1.6-.5c.5.4 1 .7 1.5.9l.4 1.6H10l.4-1.6c.5-.2 1-.5 1.5-.9l1.6.5 1.3-2.3-1.2-1Z" /></svg>
+      </button>
+    </header>
+    <div id="acts" aria-hidden="true"><i></i><i></i><i></i></div>
+
+    <section id="count">
+      <div id="counter" class="mono"><b id="nFiles">0</b> files <span class="dot">·</span> <b id="nFolders">0</b> folders</div>
+      <div id="badges"></div>
+    </section>
+
+    <section id="stage">
+      <canvas id="hero" aria-label="Repository strata"></canvas>
+      <div id="hover" class="mono" aria-live="polite"></div>
+      <div id="notice" hidden>
+        <p id="noticeTitle"></p>
+        <p id="noticeHint"></p>
+        <button id="noticeAction" hidden></button>
+      </div>
+    </section>
+
+    <section id="ask">
+      <div id="field">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.6" /><path d="m10.4 10.4 3.6 3.6" /></svg>
+        <input id="q" type="text" autocomplete="off" spellcheck="false" placeholder="Ask this repo" aria-label="Ask this repo" />
+        <kbd id="enterHint">↵</kbd>
+      </div>
+      <div id="selection" class="mono"></div>
+    </section>
+
+    <section id="answer" hidden>
+      <div id="answerHead">
+        <span id="answerKind" class="mono"></span>
+        <button id="answerClose" class="x" aria-label="Close answer">×</button>
+      </div>
+      <div id="answerBody">
+        <div id="answerText"></div>
+        <pre id="answerCode" class="mono" hidden></pre>
+      </div>
+      <div id="chips"></div>
+    </section>
+
+    <section id="readouts">
+      <div class="ro" id="roLang">
+        <div id="langBar"></div>
+        <div id="langLegend" class="mono"></div>
+      </div>
+      <div class="ro" id="roHealth">
+        <div id="dots"></div>
+        <div id="healthCaption" class="mono"></div>
+      </div>
+      <div class="ro" id="roStack"><div id="stack"></div></div>
+      <div class="ro" id="roRun">
+        <pre id="run" class="mono"></pre>
+        <button id="copyRun" class="icon" aria-label="Copy run command" title="Copy">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8.5" height="8.5" rx="1.5" /><path d="M3 10.5V3.8C3 3.3 3.3 3 3.8 3h6.7" /></svg>
+        </button>
+      </div>
+      <div class="ro mono" id="roLive"></div>
+    </section>
+  </div>
+
+  <svg id="lineage" aria-hidden="true"></svg>
+
+  <aside id="drawer" hidden aria-label="Settings">
+    <div id="drawerHead"><span>Settings</span><button id="drawerClose" class="x" aria-label="Close settings">×</button></div>
+    <label class="field"><span>GitHub token</span>
+      <input id="ghToken" type="password" autocomplete="off" spellcheck="false" placeholder="ghp_… or github_pat_… (optional)" />
+      <small>Private repos · 5,000 requests/h instead of 60.</small>
+    </label>
+    <label class="field"><span>Anthropic API key</span>
+      <input id="anKey" type="password" autocomplete="off" spellcheck="false" placeholder="sk-ant-… (optional)" />
+      <small>AI answers streamed with your own key. Free otherwise.</small>
+    </label>
+    <label class="field" id="teamField"><span>Team key</span>
+      <input id="teamKey" type="password" autocomplete="off" spellcheck="false" placeholder="gsk_…" />
+      <small id="teamNote"></small>
+    </label>
+    <div class="row">
+      <span>Sound</span>
+      <button id="sound" class="switch" role="switch" aria-checked="true"><i></i></button>
+    </div>
+    <div class="row">
+      <span>Theme</span>
+      <div id="themes" class="seg" role="radiogroup">
+        <button data-theme-set="system" role="radio">System</button>
+        <button data-theme-set="light" role="radio">Light</button>
+        <button data-theme-set="dark" role="radio">Dark</button>
+      </div>
+    </div>
+    <p class="fine">Keys stay in this browser (chrome.storage.local).</p>
+  </aside>
+
+  <div id="popover" hidden></div>
+  <script type="module" src="panel.js"></script>
+</body>
+</html>
