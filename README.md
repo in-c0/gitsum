@@ -35,16 +35,21 @@ Explain how expressjs/express routes a request, with file:line citations.
 2. Open `chrome://extensions`, turn on **Developer mode**, click **Load unpacked**, pick the unzipped folder.
 3. Open any GitHub repo and click **Gitsum** — the side panel draws the repo as strata (folders as layers, files as grains coloured by language), then lets you ask.
 
+<p align="center">
+  <img src="site/img/hud-answer.png" width="300" alt="Gitsum side panel answering a question about in-c0/gitsum with path:line chips linked to the files they came from">
+  <img src="site/img/hud-astro.png" width="520" alt="withastro/astro drawn as strata: 7,121 files, packages layer dominant">
+</p>
+
 ### MCP server
 
 ```sh
-claude mcp add gitsum -- npx -y github:in-c0/gitsum mcp
+claude mcp add gitsum -- npx -y github:in-c0/gitsum#main mcp
 ```
 
 Any other client (`mcp.json`):
 
 ```json
-{ "mcpServers": { "gitsum": { "command": "npx", "args": ["-y", "github:in-c0/gitsum", "mcp"] } } }
+{ "mcpServers": { "gitsum": { "command": "npx", "args": ["-y", "github:in-c0/gitsum#main", "mcp"] } } }
 ```
 
 | Tool | What it returns |
@@ -67,10 +72,10 @@ All tools are read-only. The calling model writes the answer from Gitsum's evide
 ### CLI
 
 ```sh
-npx -y github:in-c0/gitsum overview pallets/flask
-npx -y github:in-c0/gitsum ask pallets/flask "How do I run it?"
-npx -y github:in-c0/gitsum find pallets/flask url_for
-npx -y github:in-c0/gitsum read pallets/flask src/flask/app.py 1 60
+npx -y github:in-c0/gitsum#main overview pallets/flask
+npx -y github:in-c0/gitsum#main ask pallets/flask "How do I run it?"
+npx -y github:in-c0/gitsum#main find pallets/flask url_for
+npx -y github:in-c0/gitsum#main read pallets/flask src/flask/app.py 1 60
 ```
 
 Add `--json` for machine-readable output.
@@ -116,7 +121,8 @@ npm install
 npm test                 # engine, MCP round-trip via the official SDK client, Team API (in-memory fakes)
 npm run bench            # answer-quality judge on 10 real repos
 npm run build:extension  # → extension/dist + extension/gitsum-extension.zip
-npm run judge:hud        # Playwright: one-screen layout, live counters, zero console errors
+node scripts/fetch-hud-clones.mjs  # fixture repos at their recorded commits (once)
+npm run judge:hud        # Playwright + Chrome: 6 viewports, counters vs recount, < 300 ms lit grains, extension load
 ```
 
 | Path | What |

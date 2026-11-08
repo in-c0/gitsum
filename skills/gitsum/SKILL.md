@@ -13,11 +13,11 @@ Gitsum turns any GitHub repo into a compact briefing and answers questions with 
 Run these in a terminal. `<repo>` is `owner/repo` or any `github.com` URL.
 
 ```sh
-npx -y github:in-c0/gitsum overview <repo>                  # start here: purpose, stack, health, run command, folders, files to read first
-npx -y github:in-c0/gitsum ask <repo> "<question>"          # evidence for a question, with path:line citations
-npx -y github:in-c0/gitsum find <repo> <Symbol>             # where a function/class/type is defined (searches the whole tree)
-npx -y github:in-c0/gitsum read <repo> <path> [start] [end] # file with line numbers (220 lines per call)
-npx -y github:in-c0/gitsum tree <repo> [folder] --match <s> # list files
+npx -y github:in-c0/gitsum#main overview <repo>                  # start here: purpose, stack, health, run command, folders, files to read first
+npx -y github:in-c0/gitsum#main ask <repo> "<question>"          # evidence for a question, with path:line citations
+npx -y github:in-c0/gitsum#main find <repo> <Symbol>             # where a function/class/type is defined (searches the whole tree)
+npx -y github:in-c0/gitsum#main read <repo> <path> [start] [end] # file with line numbers (220 lines per call)
+npx -y github:in-c0/gitsum#main tree <repo> [folder] --match <s> # list files
 ```
 
 Add `--json` to any command for machine-readable output.

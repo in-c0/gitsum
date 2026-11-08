@@ -22,14 +22,14 @@
 |---|---|---|
 | Cartographer | Show the whole shape before any detail | Exploded strata of the real tree; treemap lens (d3-hierarchy) |
 | Librarian / IR engineer | Return the shelf mark, not the book | BM25 + definition index + code-search fallback, `path:line` citations |
-| DevRel for agents | Remove every install step | `npx -y github:in-c0/gitsum` (no npm publish needed), one-line Skill URL prompt (MoneyPrinterTurbo pattern), `claude mcp add` one-liner |
+| DevRel for agents | Remove every install step | `npx -y github:in-c0/gitsum#main` (no npm publish needed), one-line Skill URL prompt (MoneyPrinterTurbo pattern), `claude mcp add` one-liner |
 
 ## 1. Five references (fast-growing, same job) → common patterns
 | Reference | Pattern borrowed | Where in Gitsum |
 |---|---|---|
 | DeepWiki (Cognition) | URL swap `github.com → deepwiki.com`; MCP of the same data | Gitsum site already supports `/<owner>/<repo>`; MCP exposes the same overview |
 | gitingest | `hub → ingest` swap + Chrome extension + CLI, all free, no sign-up | Extension button on every repo page; CLI `gitsum overview o/r` |
-| Context7 (Upstash) | One-line `npx` MCP install, free for individuals, paid for teams/higher limits | `claude mcp add gitsum -- npx -y github:in-c0/gitsum mcp`; Team plan |
+| Context7 (Upstash) | One-line `npx` MCP install, free for individuals, paid for teams/higher limits | `claude mcp add gitsum -- npx -y github:in-c0/gitsum#main mcp`; Team plan |
 | repomix | Same engine shipped as CLI, MCP, extension, website | Single `src/core` used by every surface |
 | MoneyPrinterTurbo | "Use this Skill: <raw SKILL.md URL> + task" one-liner for any agent; README shows every front door with a screenshot | `skills/gitsum/SKILL.md`; README structure |
 

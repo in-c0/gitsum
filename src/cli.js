@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 // gitsum — understand any GitHub repo from the terminal or from an agent.
-//   npx -y github:in-c0/gitsum overview expressjs/express
-//   npx -y github:in-c0/gitsum ask expressjs/express "Where is the router defined?"
-//   npx -y github:in-c0/gitsum mcp            # MCP server over stdio
+//   npx -y github:in-c0/gitsum#main overview expressjs/express
+//   npx -y github:in-c0/gitsum#main ask expressjs/express "Where is the router defined?"
+//   npx -y github:in-c0/gitsum#main mcp            # MCP server over stdio
 
 import { ask, listTree, openRepo, readFile } from "./core/engine.js";
 import { huntDefinition } from "./core/find.js";
