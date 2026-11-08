@@ -1,5 +1,5 @@
 // Gitsum MCP server (stdio). Free for individuals: every tool returns evidence the calling model can cite.
-//   claude mcp add gitsum -- npx -y github:in-c0/gitsum mcp
+//   claude mcp add gitsum -- npx -y github:in-c0/gitsum#main mcp
 // Env: GITHUB_TOKEN (optional: private repos, 5,000 req/h), GITSUM_TEAM_KEY + GITSUM_API (optional: hosted Team answers)
 
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";

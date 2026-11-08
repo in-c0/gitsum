@@ -9,7 +9,7 @@ The repository owner (@in-c0) has pre-approved merges: when Claude opens a pull 
 ## Layout
 
 - `src/core/` — the one engine (GitHub access, overview, search, definition hunt, formatting). Every surface imports it; never fork its logic.
-- `src/cli.js`, `src/mcp.js` — CLI and MCP server (`npx -y github:in-c0/gitsum …`). Runtime deps stay tiny: only the MCP SDK and zod are `dependencies`; server/build deps are `devDependencies` so the npx install stays fast.
+- `src/cli.js`, `src/mcp.js` — CLI and MCP server (`npx -y github:in-c0/gitsum#main …`). Runtime deps stay tiny: only the MCP SDK and zod are `dependencies`; server/build deps are `devDependencies` so the npx install stays fast.
 - `skills/gitsum/SKILL.md`, `.claude-plugin/`, `.mcp.json` — Agent Skill and Claude Code plugin.
 - `extension/` — Chrome MV3 side-panel HUD (`npm run build:extension`, judged by `npm run judge:hud`).
 - `api/team/`, `server/`, `supabase/` — paid Team plan (Vercel functions).
