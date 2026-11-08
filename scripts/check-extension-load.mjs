@@ -1,4 +1,4 @@
-// Loads the unpacked extension (extension/dist) in real Chrome and checks that the service worker
+// Loads the unpacked extension (extension/dist) in Chromium / Chrome for Testing (branded Chrome 137+ ignores --load-extension) and checks that the service worker
 // registers, the side panel page boots inside the extension origin, and nothing logs an error.
 //   node scripts/check-extension-load.mjs   (run `npm run build:extension` first)
 import { mkdtempSync } from "node:fs";

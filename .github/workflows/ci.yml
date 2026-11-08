@@ -36,7 +36,10 @@ jobs:
         env:
           HUD_CLONES: ${{ runner.temp }}/hud-clones
           SHOTS: ${{ runner.temp }}/hud-shots
+        # Branded Google Chrome (137+) ignores --load-extension, so judge in Playwright's Chromium build.
         run: |
+          npx playwright-core install --with-deps chromium
+          export CHROME="$(node -e "import('playwright-core').then(m => console.log(m.chromium.executablePath()))")"
           node scripts/fetch-hud-clones.mjs
           npm run judge:hud
       - name: Upload HUD screenshots
