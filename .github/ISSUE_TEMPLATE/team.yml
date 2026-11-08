@@ -1,0 +1,19 @@
+name: Team plan request
+description: Get Gitsum Team for your company (hosted AI answers, team keys, one invoice).
+title: "Team plan request"
+labels: ["team"]
+body:
+  - type: input
+    id: company
+    attributes: { label: Company or team name }
+    validations: { required: true }
+  - type: input
+    id: seats
+    attributes: { label: How many seats? }
+    validations: { required: true }
+  - type: input
+    id: email
+    attributes: { label: Billing email, description: "We'll send a checkout link here. Don't post it if you'd rather we contact you another way." }
+  - type: textarea
+    id: use
+    attributes: { label: Where will you use Gitsum? (extension, MCP, CI agents…) }

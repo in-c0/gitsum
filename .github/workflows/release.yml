@@ -1,0 +1,35 @@
+# On every push to main: build the extension zip and publish it to the rolling "latest" release,
+# so the README's download link always serves the newest build (no Chrome Web Store needed to try it).
+name: release
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: true
+
+jobs:
+  extension:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm run build:extension --if-present
+      - name: Publish to the rolling "latest" release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          [ -f extension/gitsum-extension.zip ] || { echo 'No extension build yet'; exit 0; }
+          gh release view latest >/dev/null 2>&1 || gh release create latest --title "Gitsum (latest build)" --notes "Rolling build from main. Chrome: unzip, open chrome://extensions, turn on Developer mode, Load unpacked → the unzipped folder." --latest
+          gh release upload latest extension/gitsum-extension.zip --clobber

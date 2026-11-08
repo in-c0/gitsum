@@ -1,0 +1,1227 @@
+{
+  "summary": {
+    "generatedAt": "2026-11-08T02:14:40.918Z",
+    "seed": 42,
+    "questions": 80,
+    "hit1": 0.988,
+    "hit3": 0.988,
+    "medianAskMs": 6,
+    "p95AskMs": 21,
+    "medianTokens": 160,
+    "maxTokens": 488,
+    "medianNaiveTokens": 7083
+  },
+  "rows": [
+    {
+      "repo": "expressjs/express",
+      "files": 216,
+      "q": "Where is `createETagGenerator` defined?",
+      "truth": "lib/utils.js",
+      "top": [
+        "lib/utils.js"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 11,
+      "openMs": 52,
+      "tokens": 112,
+      "naive": 4037
+    },
+    {
+      "repo": "expressjs/express",
+      "files": 216,
+      "q": "where is acceptParams defined?",
+      "truth": "lib/utils.js",
+      "top": [
+        "lib/utils.js"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 7,
+      "openMs": 52,
+      "tokens": 147,
+      "naive": 4037
+    },
+    {
+      "repo": "expressjs/express",
+      "files": 216,
+      "q": "Where is `sendfile` defined?",
+      "truth": "lib/response.js",
+      "top": [
+        "lib/response.js"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 5,
+      "openMs": 52,
+      "tokens": 123,
+      "naive": 4037
+    },
+    {
+      "repo": "expressjs/express",
+      "files": 216,
+      "q": "where is defineGetter defined?",
+      "truth": "lib/request.js",
+      "top": [
+        "lib/request.js"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 5,
+      "openMs": 52,
+      "tokens": 93,
+      "naive": 4037
+    },
+    {
+      "repo": "expressjs/express",
+      "files": 216,
+      "q": "Where is `parseExtendedQueryString` defined?",
+      "truth": "lib/utils.js",
+      "top": [
+        "lib/utils.js"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 4,
+      "openMs": 52,
+      "tokens": 85,
+      "naive": 4037
+    },
+    {
+      "repo": "expressjs/express",
+      "files": 216,
+      "q": "where is createApplication defined?",
+      "truth": "lib/express.js",
+      "top": [
+        "lib/express.js"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 4,
+      "openMs": 52,
+      "tokens": 144,
+      "naive": 4037
+    },
+    {
+      "repo": "expressjs/express",
+      "files": 216,
+      "q": "Where is `stringify` defined?",
+      "truth": "lib/response.js",
+      "top": [
+        "lib/response.js"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 5,
+      "openMs": 52,
+      "tokens": 162,
+      "naive": 4037
+    },
+    {
+      "repo": "expressjs/express",
+      "files": 216,
+      "q": "where is logerror defined?",
+      "truth": "lib/application.js",
+      "top": [
+        "lib/application.js"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 5,
+      "openMs": 52,
+      "tokens": 107,
+      "naive": 4037
+    },
+    {
+      "repo": "pallets/flask",
+      "files": 236,
+      "q": "Where is `routes_command` defined?",
+      "truth": "src/flask/cli.py",
+      "top": [
+        "src/flask/cli.py"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 7,
+      "openMs": 30,
+      "tokens": 110,
+      "naive": 2136
+    },
+    {
+      "repo": "pallets/flask",
+      "files": 236,
+      "q": "where is wsgi_errors_stream defined?",
+      "truth": "src/flask/logging.py",
+      "top": [
+        "src/flask/logging.py"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 6,
+      "openMs": 30,
+      "tokens": 199,
+      "naive": 2136
+    },
+    {
+      "repo": "pallets/flask",
+      "files": 236,
+      "q": "Where is `redirect` defined?",
+      "truth": "src/flask/helpers.py",
+      "top": [
+        "src/flask/helpers.py",
+        "src/flask/sansio/app.py"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 7,
+      "openMs": 30,
+      "tokens": 300,
+      "naive": 2136
+    },
+    {
+      "repo": "pallets/flask",
+      "files": 236,
+      "q": "where is _lazy_sha1 defined?",
+      "truth": "src/flask/sessions.py",
+      "top": [
+        "src/flask/sessions.py"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 12,
+      "openMs": 30,
+      "tokens": 174,
+      "naive": 2136
+    },
+    {
+      "repo": "pallets/flask",
+      "files": 236,
+      "q": "Where is `dumps` defined?",
+      "truth": "src/flask/json/__init__.py",
+      "top": [
+        "src/flask/json/__init__.py",
+        "src/flask/json/provider.py",
+        "src/flask/json/tag.py"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 9,
+      "openMs": 30,
+      "tokens": 410,
+      "naive": 2136
+    },
+    {
+      "repo": "pallets/flask",
+      "files": 236,
+      "q": "where is remove_ctx defined?",
+      "truth": "src/flask/app.py",
+      "top": [
+        "src/flask/app.py"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 5,
+      "openMs": 30,
+      "tokens": 156,
+      "naive": 2136
+    },
+    {
+      "repo": "pallets/flask",
+      "files": 236,
+      "q": "Where is `abort` defined?",
+      "truth": "src/flask/helpers.py",
+      "top": [
+        "src/flask/helpers.py"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 6,
+      "openMs": 30,
+      "tokens": 177,
+      "naive": 2136
+    },
+    {
+      "repo": "pallets/flask",
+      "files": 236,
+      "q": "where is DispatchingJinjaLoader defined?",
+      "truth": "src/flask/templating.py",
+      "top": [
+        "src/flask/templating.py"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 9,
+      "openMs": 30,
+      "tokens": 152,
+      "naive": 2136
+    },
+    {
+      "repo": "psf/requests",
+      "files": 130,
+      "q": "Where is `InvalidJSONError` defined?",
+      "truth": "src/requests/exceptions.py",
+      "top": [
+        "src/requests/exceptions.py"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 7,
+      "openMs": 19,
+      "tokens": 160,
+      "naive": 1525
+    },
+    {
+      "repo": "psf/requests",
+      "files": 130,
+      "q": "where is to_key_val_list defined?",
+      "truth": "src/requests/utils.py",
+      "top": [
+        "src/requests/utils.py"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 4,
+      "openMs": 19,
+      "tokens": 171,
+      "naive": 1525
+    },
+    {
+      "repo": "psf/requests",
+      "files": 130,
+      "q": "Where is `set_environ` defined?",
+      "truth": "src/requests/utils.py",
+      "top": [
+        "src/requests/utils.py"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 4,
+      "openMs": 19,
+      "tokens": 174,
+      "naive": 1525
+    },
+    {
+      "repo": "psf/requests",
+      "files": 130,
+      "q": "where is resolve_proxies defined?",
+      "truth": "src/requests/utils.py",
+      "top": [
+        "src/requests/utils.py"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 4,
+      "openMs": 19,
+      "tokens": 180,
+      "naive": 1525
+    },
+    {
+      "repo": "psf/requests",
+      "files": 130,
+      "q": "Where is `create_cookie` defined?",
+      "truth": "src/requests/cookies.py",
+      "top": [
+        "src/requests/cookies.py"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 5,
+      "openMs": 19,
+      "tokens": 161,
+      "naive": 1525
+    },
+    {
+      "repo": "psf/requests",
+      "files": 130,
+      "q": "where is JSONDecodeError defined?",
+      "truth": "src/requests/exceptions.py",
+      "top": [
+        "src/requests/exceptions.py"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 5,
+      "openMs": 19,
+      "tokens": 189,
+      "naive": 1525
+    },
+    {
+      "repo": "psf/requests",
+      "files": 130,
+      "q": "Where is `default_headers` defined?",
+      "truth": "src/requests/utils.py",
+      "top": [
+        "src/requests/utils.py"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 4,
+      "openMs": 19,
+      "tokens": 146,
+      "naive": 1525
+    },
+    {
+      "repo": "psf/requests",
+      "files": 130,
+      "q": "where is RequestException defined?",
+      "truth": "src/requests/exceptions.py",
+      "top": [
+        "src/requests/exceptions.py"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 5,
+      "openMs": 19,
+      "tokens": 166,
+      "naive": 1525
+    },
+    {
+      "repo": "sindresorhus/ky",
+      "files": 115,
+      "q": "Where is `newHookValue` defined?",
+      "truth": "source/utils/merge.ts",
+      "top": [
+        "source/utils/merge.ts"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 5,
+      "openMs": 27,
+      "tokens": 131,
+      "naive": 19477
+    },
+    {
+      "repo": "sindresorhus/ky",
+      "files": 115,
+      "q": "where is isRawNetworkError defined?",
+      "truth": "source/utils/is-network-error.ts",
+      "top": [
+        "source/utils/is-network-error.ts"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 5,
+      "openMs": 27,
+      "tokens": 136,
+      "naive": 19477
+    },
+    {
+      "repo": "sindresorhus/ky",
+      "files": 115,
+      "q": "Where is `KyError` defined?",
+      "truth": "source/errors/KyError.ts",
+      "top": [
+        "source/errors/KyError.ts"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 6,
+      "openMs": 27,
+      "tokens": 86,
+      "naive": 19477
+    },
+    {
+      "repo": "sindresorhus/ky",
+      "files": 115,
+      "q": "where is isResponseSizeError defined?",
+      "truth": "source/utils/type-guards.ts",
+      "top": [
+        "source/utils/type-guards.ts"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 5,
+      "openMs": 27,
+      "tokens": 100,
+      "naive": 19477
+    },
+    {
+      "repo": "sindresorhus/ky",
+      "files": 115,
+      "q": "Where is `TimeoutError` defined?",
+      "truth": "source/errors/TimeoutError.ts",
+      "top": [
+        "source/errors/TimeoutError.ts"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 6,
+      "openMs": 27,
+      "tokens": 122,
+      "naive": 19477
+    },
+    {
+      "repo": "sindresorhus/ky",
+      "files": 115,
+      "q": "where is ForceRetryError defined?",
+      "truth": "source/errors/ForceRetryError.ts",
+      "top": [
+        "source/errors/ForceRetryError.ts"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 4,
+      "openMs": 27,
+      "tokens": 174,
+      "naive": 19477
+    },
+    {
+      "repo": "sindresorhus/ky",
+      "files": 115,
+      "q": "Where is `HTTPError` defined?",
+      "truth": "source/errors/HTTPError.ts",
+      "top": [
+        "source/errors/HTTPError.ts",
+        "readme.md"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 3,
+      "openMs": 27,
+      "tokens": 261,
+      "naive": 19477
+    },
+    {
+      "repo": "sindresorhus/ky",
+      "files": 115,
+      "q": "where is delay defined?",
+      "truth": "source/utils/delay.ts",
+      "top": [
+        "source/utils/delay.ts",
+        "source/core/retry-timing.ts",
+        "source/errors/ForceRetryError.ts"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 5,
+      "openMs": 27,
+      "tokens": 488,
+      "naive": 19477
+    },
+    {
+      "repo": "axios/axios",
+      "files": 529,
+      "q": "Where is `setDirectAgent` defined?",
+      "truth": "lib/adapters/http.js",
+      "top": [
+        "lib/adapters/http.js"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 10,
+      "openMs": 25,
+      "tokens": 160,
+      "naive": 31535
+    },
+    {
+      "repo": "axios/axios",
+      "files": 529,
+      "q": "where is setProxy defined?",
+      "truth": "lib/adapters/http.js",
+      "top": [
+        "lib/adapters/http.js"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 8,
+      "openMs": 25,
+      "tokens": 119,
+      "naive": 31535
+    },
+    {
+      "repo": "axios/axios",
+      "files": 529,
+      "q": "Where is `normalizeHandlerId` defined?",
+      "truth": "lib/core/InterceptorManager.js",
+      "top": [
+        "lib/core/InterceptorManager.js"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 8,
+      "openMs": 25,
+      "tokens": 156,
+      "naive": 31535
+    },
+    {
+      "repo": "axios/axios",
+      "files": 529,
+      "q": "where is getCauseStackIndex defined?",
+      "truth": "lib/core/AxiosError.js",
+      "top": [
+        "lib/core/AxiosError.js"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 9,
+      "openMs": 25,
+      "tokens": 196,
+      "naive": 31535
+    },
+    {
+      "repo": "axios/axios",
+      "files": 529,
+      "q": "Where is `isVisitable` defined?",
+      "truth": "lib/helpers/toFormData.js",
+      "top": [
+        "lib/helpers/toFormData.js"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 12,
+      "openMs": 25,
+      "tokens": 126,
+      "naive": 31535
+    },
+    {
+      "repo": "axios/axios",
+      "files": 529,
+      "q": "where is normalizeValue defined?",
+      "truth": "lib/core/AxiosHeaders.js",
+      "top": [
+        "lib/core/AxiosHeaders.js"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 7,
+      "openMs": 25,
+      "tokens": 140,
+      "naive": 31535
+    },
+    {
+      "repo": "axios/axios",
+      "files": 529,
+      "q": "Where is `parsePropPath` defined?",
+      "truth": "lib/helpers/formDataToJSON.js",
+      "top": [
+        "lib/helpers/formDataToJSON.js"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 8,
+      "openMs": 25,
+      "tokens": 254,
+      "naive": 31535
+    },
+    {
+      "repo": "axios/axios",
+      "files": 529,
+      "q": "where is parseProtocol defined?",
+      "truth": "lib/helpers/parseProtocol.js",
+      "top": [
+        "lib/helpers/parseProtocol.js"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 4,
+      "openMs": 25,
+      "tokens": 100,
+      "naive": 31535
+    },
+    {
+      "repo": "spf13/cobra",
+      "files": 66,
+      "q": "Where is `writeRequiredFlag` defined?",
+      "truth": "bash_completions.go",
+      "top": [
+        "bash_completions.go"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 5,
+      "openMs": 21,
+      "tokens": 160,
+      "naive": 1569
+    },
+    {
+      "repo": "spf13/cobra",
+      "files": 66,
+      "q": "where is OnFinalize defined?",
+      "truth": "cobra.go",
+      "top": [
+        "cobra.go"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 4,
+      "openMs": 21,
+      "tokens": 185,
+      "naive": 1569
+    },
+    {
+      "repo": "spf13/cobra",
+      "files": 66,
+      "q": "Where is `DisplayName` defined?",
+      "truth": "command.go",
+      "top": [
+        "command.go"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 4,
+      "openMs": 21,
+      "tokens": 101,
+      "naive": 1569
+    },
+    {
+      "repo": "spf13/cobra",
+      "files": 66,
+      "q": "where is GenPowerShellCompletionWithDesc defined?",
+      "truth": "powershell_completions.go",
+      "top": [
+        "powershell_completions.go"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 4,
+      "openMs": 21,
+      "tokens": 109,
+      "naive": 1569
+    },
+    {
+      "repo": "spf13/cobra",
+      "files": 66,
+      "q": "Where is `OnInitialize` defined?",
+      "truth": "cobra.go",
+      "top": [
+        "cobra.go"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 6,
+      "openMs": 21,
+      "tokens": 101,
+      "naive": 1569
+    },
+    {
+      "repo": "spf13/cobra",
+      "files": 66,
+      "q": "where is ExecuteContext defined?",
+      "truth": "command.go",
+      "top": [
+        "command.go"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 4,
+      "openMs": 21,
+      "tokens": 79,
+      "naive": 1569
+    },
+    {
+      "repo": "spf13/cobra",
+      "files": 66,
+      "q": "Where is `genPowerShellComp` defined?",
+      "truth": "powershell_completions.go",
+      "top": [
+        "powershell_completions.go"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 4,
+      "openMs": 21,
+      "tokens": 176,
+      "naive": 1569
+    },
+    {
+      "repo": "spf13/cobra",
+      "files": 66,
+      "q": "where is SetOut defined?",
+      "truth": "command.go",
+      "top": [
+        "command.go"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 4,
+      "openMs": 21,
+      "tokens": 68,
+      "naive": 1569
+    },
+    {
+      "repo": "gin-gonic/gin",
+      "files": 130,
+      "q": "Where is `longestCommonPrefix` defined?",
+      "truth": "tree.go",
+      "top": [
+        "tree.go"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 6,
+      "openMs": 16,
+      "tokens": 112,
+      "naive": 3568
+    },
+    {
+      "repo": "gin-gonic/gin",
+      "files": 130,
+      "q": "where is Match defined?",
+      "truth": "routergroup.go",
+      "top": [
+        "routergroup.go"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 5,
+      "openMs": 16,
+      "tokens": 165,
+      "naive": 3568
+    },
+    {
+      "repo": "gin-gonic/gin",
+      "files": 130,
+      "q": "Where is `GetInt32` defined?",
+      "truth": "context.go",
+      "top": [
+        "context.go"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 6,
+      "openMs": 16,
+      "tokens": 154,
+      "naive": 3568
+    },
+    {
+      "repo": "gin-gonic/gin",
+      "files": 130,
+      "q": "where is GetStringMapStringSlice defined?",
+      "truth": "context.go",
+      "top": [
+        "context.go"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 5,
+      "openMs": 16,
+      "tokens": 173,
+      "naive": 3568
+    },
+    {
+      "repo": "gin-gonic/gin",
+      "files": 130,
+      "q": "Where is `AddParam` defined?",
+      "truth": "context.go",
+      "top": [
+        "context.go"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 5,
+      "openMs": 16,
+      "tokens": 149,
+      "naive": 3568
+    },
+    {
+      "repo": "gin-gonic/gin",
+      "files": 130,
+      "q": "where is GetUint defined?",
+      "truth": "context.go",
+      "top": [
+        "context.go"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 6,
+      "openMs": 16,
+      "tokens": 158,
+      "naive": 3568
+    },
+    {
+      "repo": "gin-gonic/gin",
+      "files": 130,
+      "q": "Where is `IsAborted` defined?",
+      "truth": "context.go",
+      "top": [
+        "context.go"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 6,
+      "openMs": 16,
+      "tokens": 184,
+      "naive": 3568
+    },
+    {
+      "repo": "gin-gonic/gin",
+      "files": 130,
+      "q": "where is safeInt8 defined?",
+      "truth": "utils.go",
+      "top": [
+        "utils.go"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 5,
+      "openMs": 16,
+      "tokens": 125,
+      "naive": 3568
+    },
+    {
+      "repo": "BurntSushi/ripgrep",
+      "files": 226,
+      "q": "Where is `try_captures_iter` defined?",
+      "truth": "crates/matcher/src/lib.rs",
+      "top": [
+        "crates/matcher/src/lib.rs",
+        "crates/matcher/tests/test_matcher.rs"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 30,
+      "openMs": 7,
+      "tokens": 293,
+      "naive": 7083
+    },
+    {
+      "repo": "BurntSushi/ripgrep",
+      "files": 226,
+      "q": "where is SuffixStrategy defined?",
+      "truth": "crates/globset/src/lib.rs",
+      "top": [
+        "crates/globset/src/lib.rs"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 12,
+      "openMs": 7,
+      "tokens": 153,
+      "naive": 7083
+    },
+    {
+      "repo": "BurntSushi/ripgrep",
+      "files": 226,
+      "q": "Where is `test_binary` defined?",
+      "truth": "crates/core/flags/defs.rs",
+      "top": [
+        "crates/core/flags/defs.rs"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 22,
+      "openMs": 7,
+      "tokens": 170,
+      "naive": 7083
+    },
+    {
+      "repo": "BurntSushi/ripgrep",
+      "files": 226,
+      "q": "where is longs_all_ascii_alphanumeric defined?",
+      "truth": "crates/core/flags/defs.rs",
+      "top": [
+        "crates/core/flags/defs.rs"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 20,
+      "openMs": 7,
+      "tokens": 202,
+      "naive": 7083
+    },
+    {
+      "repo": "BurntSushi/ripgrep",
+      "files": 226,
+      "q": "Where is `compile_matcher` defined?",
+      "truth": "crates/globset/src/glob.rs",
+      "top": [
+        "crates/globset/src/glob.rs"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 10,
+      "openMs": 7,
+      "tokens": 189,
+      "naive": 7083
+    },
+    {
+      "repo": "BurntSushi/ripgrep",
+      "files": 226,
+      "q": "where is byte_offset_multi_line defined?",
+      "truth": "crates/printer/src/standard.rs",
+      "top": [
+        "crates/printer/src/standard.rs"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 21,
+      "openMs": 7,
+      "tokens": 175,
+      "naive": 7083
+    },
+    {
+      "repo": "BurntSushi/ripgrep",
+      "files": 226,
+      "q": "Where is `NoIgnoreVcs` defined?",
+      "truth": "crates/core/flags/defs.rs",
+      "top": [
+        "crates/core/flags/defs.rs"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 21,
+      "openMs": 7,
+      "tokens": 132,
+      "naive": 7083
+    },
+    {
+      "repo": "BurntSushi/ripgrep",
+      "files": 226,
+      "q": "where is walk_unfiltered_parallel_12 defined?",
+      "truth": "crates/ignore/benches/workloads.rs",
+      "top": [
+        "crates/ignore/benches/workloads.rs"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 9,
+      "openMs": 7,
+      "tokens": 177,
+      "naive": 7083
+    },
+    {
+      "repo": "colinhacks/zod",
+      "files": 744,
+      "q": "Where is `ZodTuple` defined?",
+      "truth": "packages/zod/src/v3/types.ts",
+      "top": [
+        "packages/zod/src/v4/classic/schemas.ts"
+      ],
+      "hit1": false,
+      "hit3": false,
+      "ms": 16,
+      "openMs": 13,
+      "tokens": 211,
+      "naive": 8929
+    },
+    {
+      "repo": "colinhacks/zod",
+      "files": 744,
+      "q": "where is slugify defined?",
+      "truth": "packages/zod/src/v4/core/util.ts",
+      "top": [
+        "packages/zod/src/v4/core/util.ts",
+        "packages/zod/src/v4/classic/schemas.ts"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 16,
+      "openMs": 13,
+      "tokens": 262,
+      "naive": 8929
+    },
+    {
+      "repo": "colinhacks/zod",
+      "files": 744,
+      "q": "Where is `leafPattern` defined?",
+      "truth": "packages/zod/src/v4/core/schemas.ts",
+      "top": [
+        "packages/zod/src/v4/core/schemas.ts"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 27,
+      "openMs": 13,
+      "tokens": 290,
+      "naive": 8929
+    },
+    {
+      "repo": "colinhacks/zod",
+      "files": 744,
+      "q": "where is cloneDef defined?",
+      "truth": "packages/zod/src/v4/core/util.ts",
+      "top": [
+        "packages/zod/src/v4/core/util.ts"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 14,
+      "openMs": 13,
+      "tokens": 172,
+      "naive": 8929
+    },
+    {
+      "repo": "colinhacks/zod",
+      "files": 744,
+      "q": "Where is `handleIntersectionResults` defined?",
+      "truth": "packages/zod/src/v4/core/schemas.ts",
+      "top": [
+        "packages/zod/src/v4/core/schemas.ts"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 17,
+      "openMs": 13,
+      "tokens": 279,
+      "naive": 8929
+    },
+    {
+      "repo": "colinhacks/zod",
+      "files": 744,
+      "q": "where is _success defined?",
+      "truth": "packages/zod/src/v4/core/api.ts",
+      "top": [
+        "packages/zod/src/v4/core/api.ts"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 12,
+      "openMs": 13,
+      "tokens": 129,
+      "naive": 8929
+    },
+    {
+      "repo": "colinhacks/zod",
+      "files": 744,
+      "q": "Where is `_base64url` defined?",
+      "truth": "packages/zod/src/v4/core/api.ts",
+      "top": [
+        "packages/zod/src/v4/core/api.ts"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 11,
+      "openMs": 13,
+      "tokens": 152,
+      "naive": 8929
+    },
+    {
+      "repo": "colinhacks/zod",
+      "files": 744,
+      "q": "where is extended defined?",
+      "truth": "packages/zod/src/v4/core/util.ts",
+      "top": [
+        "packages/zod/src/v4/core/util.ts"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 12,
+      "openMs": 13,
+      "tokens": 197,
+      "naive": 8929
+    },
+    {
+      "repo": "tj/commander.js",
+      "files": 220,
+      "q": "Where is `Command` defined?",
+      "truth": "lib/command.js",
+      "top": [
+        "lib/command.js",
+        "typings/index.d.ts"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 8,
+      "openMs": 23,
+      "tokens": 205,
+      "naive": 12148
+    },
+    {
+      "repo": "tj/commander.js",
+      "files": 220,
+      "q": "where is DualOptions defined?",
+      "truth": "lib/option.js",
+      "top": [
+        "lib/option.js"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 7,
+      "openMs": 23,
+      "tokens": 137,
+      "naive": 12148
+    },
+    {
+      "repo": "tj/commander.js",
+      "files": 220,
+      "q": "Where is `humanReadableArgName` defined?",
+      "truth": "lib/argument.js",
+      "top": [
+        "lib/argument.js"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 5,
+      "openMs": 23,
+      "tokens": 108,
+      "naive": 12148
+    },
+    {
+      "repo": "tj/commander.js",
+      "files": 220,
+      "q": "where is incrementNodeInspectorPort defined?",
+      "truth": "lib/command.js",
+      "top": [
+        "lib/command.js"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 7,
+      "openMs": 23,
+      "tokens": 181,
+      "naive": 12148
+    },
+    {
+      "repo": "tj/commander.js",
+      "files": 220,
+      "q": "Where is `camelcase` defined?",
+      "truth": "lib/option.js",
+      "top": [
+        "lib/option.js"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 6,
+      "openMs": 23,
+      "tokens": 112,
+      "naive": 12148
+    },
+    {
+      "repo": "tj/commander.js",
+      "files": 220,
+      "q": "where is CommanderError defined?",
+      "truth": "lib/error.js",
+      "top": [
+        "lib/error.js",
+        "typings/index.d.ts"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 5,
+      "openMs": 23,
+      "tokens": 298,
+      "naive": 12148
+    },
+    {
+      "repo": "tj/commander.js",
+      "files": 220,
+      "q": "Where is `InvalidArgumentError` defined?",
+      "truth": "lib/error.js",
+      "top": [
+        "lib/error.js",
+        "typings/index.d.ts"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 5,
+      "openMs": 23,
+      "tokens": 279,
+      "naive": 12148
+    },
+    {
+      "repo": "tj/commander.js",
+      "files": 220,
+      "q": "where is suggestSimilar defined?",
+      "truth": "lib/suggestSimilar.js",
+      "top": [
+        "lib/suggestSimilar.js"
+      ],
+      "hit1": true,
+      "hit3": true,
+      "ms": 7,
+      "openMs": 23,
+      "tokens": 150,
+      "naive": 12148
+    }
+  ]
+}
