@@ -1,9 +1,14 @@
 name: pages
 
+# Self-healing deploy: the default token cannot create a Pages site, so until the owner sets
+# Settings → Pages → Source: GitHub Actions once, runs skip quietly (no red X). The hourly check
+# deploys within the hour after that click and does nothing once the site is live.
 on:
   push:
     branches: [main]
     paths: ['site/**', '.github/workflows/pages.yml']
+  schedule:
+    - cron: '17 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -22,12 +27,32 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Skip the hourly check once the site is live
+        id: live
+        if: github.event_name == 'schedule'
+        run: |
+          code=$(curl -s -o /dev/null -w '%{http_code}' "https://${GITHUB_REPOSITORY_OWNER}.github.io/${GITHUB_REPOSITORY#*/}/")
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+      - name: Is Pages enabled?
+        id: pages
+        if: steps.live.outputs.code != '200'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh api "repos/${GITHUB_REPOSITORY}/pages" >/dev/null 2>&1; then
+            echo "on=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "on=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Pages is off. One click turns it on: https://github.com/${GITHUB_REPOSITORY}/settings/pages (Source: GitHub Actions). This workflow deploys within the hour after that."
+          fi
       - uses: actions/checkout@v4
+        if: steps.pages.outputs.on == 'true'
       - uses: actions/configure-pages@v5
-        with:
-          enablement: true
+        if: steps.pages.outputs.on == 'true'
       - uses: actions/upload-pages-artifact@v3
+        if: steps.pages.outputs.on == 'true'
         with:
           path: site
       - id: deployment
+        if: steps.pages.outputs.on == 'true'
         uses: actions/deploy-pages@v4
