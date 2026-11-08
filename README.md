@@ -38,13 +38,13 @@ Explain how expressjs/express routes a request, with file:line citations.
 ### MCP server
 
 ```sh
-claude mcp add gitsum -- npx -y github:in-c0/gitsum mcp
+claude mcp add gitsum -- npx -y github:in-c0/gitsum#main mcp
 ```
 
 Any other client (`mcp.json`):
 
 ```json
-{ "mcpServers": { "gitsum": { "command": "npx", "args": ["-y", "github:in-c0/gitsum", "mcp"] } } }
+{ "mcpServers": { "gitsum": { "command": "npx", "args": ["-y", "github:in-c0/gitsum#main", "mcp"] } } }
 ```
 
 | Tool | What it returns |
@@ -67,10 +67,10 @@ All tools are read-only. The calling model writes the answer from Gitsum's evide
 ### CLI
 
 ```sh
-npx -y github:in-c0/gitsum overview pallets/flask
-npx -y github:in-c0/gitsum ask pallets/flask "How do I run it?"
-npx -y github:in-c0/gitsum find pallets/flask url_for
-npx -y github:in-c0/gitsum read pallets/flask src/flask/app.py 1 60
+npx -y github:in-c0/gitsum#main overview pallets/flask
+npx -y github:in-c0/gitsum#main ask pallets/flask "How do I run it?"
+npx -y github:in-c0/gitsum#main find pallets/flask url_for
+npx -y github:in-c0/gitsum#main read pallets/flask src/flask/app.py 1 60
 ```
 
 Add `--json` for machine-readable output.
