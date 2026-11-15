@@ -1,7 +1,0 @@
-node_modules/
-.bench-cache/
-.env*
-!.env.example
-.vercel
-extension/dist/
-extension/*.zip
