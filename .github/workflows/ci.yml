@@ -1,0 +1,42 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Unit, MCP and Team API tests
+        run: npm test
+      - name: CLI works from a clean npx-style install (runtime deps only)
+        run: |
+          tmp=$(mktemp -d)
+          cp -r src skills package.json "$tmp"/
+          (cd "$tmp" && npm install --omit=dev --no-audit --no-fund >/dev/null && node src/cli.js --help >/dev/null)
+      - name: Build Chrome extension
+        run: npm run build:extension --if-present
+      - name: Answer-quality benchmark (outside judge)
+        run: node bench/run.mjs --per 6 --min 0.9
+      - name: Upload extension zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: gitsum-extension
+          path: extension/gitsum-extension.zip
+          if-no-files-found: warn
