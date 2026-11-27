@@ -1,0 +1,10 @@
+{
+  "name": "gitsum",
+  "version": "0.1.0",
+  "description": "Understand any GitHub repo in seconds: overview, path:line answers, definition finder. Skill + MCP server, free for individuals.",
+  "author": { "name": "in-c0", "url": "https://github.com/in-c0" },
+  "homepage": "https://in-c0.github.io/gitsum/",
+  "repository": "https://github.com/in-c0/gitsum",
+  "license": "MIT",
+  "keywords": ["github", "repository", "code-search", "onboarding", "mcp"]
+}

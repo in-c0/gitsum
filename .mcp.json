@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "gitsum": {
+      "command": "npx",
+      "args": ["-y", "github:in-c0/gitsum", "mcp"]
+    }
+  }
+}

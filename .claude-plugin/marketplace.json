@@ -1,0 +1,11 @@
+{
+  "name": "gitsum",
+  "owner": { "name": "in-c0", "url": "https://github.com/in-c0" },
+  "plugins": [
+    {
+      "name": "gitsum",
+      "source": "./",
+      "description": "Understand any GitHub repo in seconds: overview, path:line answers, definition finder. Skill + MCP server, free for individuals."
+    }
+  ]
+}
